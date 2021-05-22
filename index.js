@@ -15,12 +15,12 @@ const v = new Validation();
 //console.log(v.isValidMessage('%$^%$^'), true);
 //console.log(v.isValidMessage(['bla, bla']), false);
 
-console.log(v.isValidFirstName('Vardenis'), true);
-console.log(v.isValidLastName('Pavardenis'), true);
-console.log(v.isValidLastName(123), false);
-console.log(v.isValidLastName('t'), false);
-console.log(v.isValidEmail('demo@example.com'), true);
-//console.log(v.isValidPhoneNumber(+37061234567), true);
+//console.log(v.isValidFirstName('Vardenis'), true);
+//console.log(v.isValidLastName('Pavardenis'), true);
+//console.log(v.isValidLastName(123), false);
+//console.log(v.isValidLastName('t'), false);
+//console.log(v.isValidEmail('sdfkjl@example.com'), true);
+console.log(v.isValidPhoneNumber('a'), true);
 //console.log(v.isValidMonthName('Sausis'), true);
 //console.log(v.isValidMonthName('January'), true);
 //console.log(v.isValidWeekdayName('Pirmadienis'), true);
