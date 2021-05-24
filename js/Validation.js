@@ -8,6 +8,12 @@ class Validation {
         if (firstName.length < 2) {
             return false;
         }
+        if (firstName[0].toLowerCase() === firstName[0]) {
+            return false;
+        }
+        if (firstName.slice(1).toLowerCase() !== firstName.slice(1)) {
+            return false;
+        }
         return true;
     }
 
@@ -38,30 +44,35 @@ class Validation {
     }
 
     isValidPhoneNumber(phone) {
-        if (typeof phone === 'number')
-            return true
+        // var str = phone;
+        // if (str.charAt(1) === '+') { str = str.slice(0) };
+        // if (typeof str === 'number' && str.length === 11) {
+        //    return true
+        //}
     }
 
-    isValidMonthName(month) {
-        let monthName = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December', 'Sausis', 'Vasaris', 'Kovas', 'Balandis', 'Geguze', 'Birzelis', 'Liepa', 'Rugpjutis', 'Rugsėjis', 'Spalis', 'Lapkritis', 'Gruodis']
-        for (let i = 0; i < monthName.length; i++) {
-            if (month == monthName[i]) {
-                return true
-            }
+    isValidMonthName(month, lang) {
+        const monthName = {
+            en: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+            lt: ['Sausis', 'Vasaris', 'Kovas', 'Balandis', 'Geguze', 'Birzelis', 'Liepa', 'Rugpjutis', 'Rugsėjis', 'Spalis', 'Lapkritis', 'Gruodis'],
         }
-        console.error('ERROR: Month has to be with proper name');
-        return false;
+        if (!monthName[lang].includes(month)) {
+            console.error('ERROR: Not proper month name');
+            return false;
+        }
+        return true;
     }
 
-    isValidWeekdayName(day) {
-        let weekName = ['Monday', 'Tuesday', 'Thirsday', 'Wednesday', 'Friday', 'Sutturday', 'Sunday', 'Pirmadienis', 'Antradienis', 'Treciadienis', 'Ketvirtadienis', 'Penktadienis', 'Sestadienis', 'Sekmadienis']
-        for (let d = 0; d < weekName.length; d++) {
-            if (day == weekName[d]) {
-                return true
-            }
+    isValidWeekdayName(day, lang) {
+        const weekdayName = {
+            en: ['Monday', 'Tuesday', 'Thirsday', 'Wednesday', 'Friday', 'Sutturday', 'Sunday'],
+            lt: ['Pirmadienis', 'Antradienis', 'Treciadienis', 'Ketvirtadienis', 'Penktadienis', 'Sestadienis', 'Sekmadienis'],
         }
-        console.error('ERROR: Day has to be with proper name');
-        return false;
+        if (!weekdayName[lang].includes(day)) {
+            console.error('ERROR: Not proper weekday name');
+            return false;
+        }
+        return true;
     }
 
     isValidPersonID() {
@@ -71,3 +82,18 @@ class Validation {
 }
 
 module.exports = Validation;
+
+/*
+
+''+parseInt('+2148562erfds'.slice(1)) === '+2148562erfds'.slice(1)
+
+isValidLastName(lastName) {
+    const errors = [];
+    const nonEmptyString = [...error, ...this.isValidMessage(lastName)]    // [], ['ERROR']
+
+    if (lastName.length < 2) {
+        errors.push('per trumpas')
+    }
+
+    return errors;
+}*/
