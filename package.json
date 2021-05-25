@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "live-server --port=3000",
     "dev-nom": "nodemon .",
-    "test": "jest --watchAll"
+    "test": "jest --collectCoverage --watchAll"
   },
   "repository": {
     "type": "git",
